@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - uses: onionltd/tor-proxy@v1
+    - run: curl --connect-timeout 40 http://onions53ehmf4q75.onion
+      env: 
+        http_proxy: "socks5h://localhost:9050"
+        https_proxy: "socks5h://localhost:9050"
+
